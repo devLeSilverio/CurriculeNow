@@ -1,3 +1,4 @@
+<?php include('./Admin/conexao.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,7 +15,7 @@
     <div id="login-container">
       <h1>Login</h1>
       <img src="Imgs/logo.png" width="100rem" height="80rem" id="img" />
-      <form action="">
+      <form action="index.php" method="POST">      
         <label for="email">E-mail:</label>
         <input
           type="email"
@@ -31,12 +32,33 @@
           placeholder="Digite sua senha"
         />
         <a href="#" id="forgot-pass">Esqueceu a senha?</a>
-        <input type="submit" value="Entrar" />
+        <input type="submit" name="login" value="Entrar" />
       </form>
       <div id="register-container">
         <p>Ainda não tem uma conta?</p>
-        <a href="create.html">Registrar</a>
+        <a href="create.php">Registrar</a>
       </div>
     </div>
+</form>
+
+<?php
+      if(isset($_POST['login'])){
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $correct=false;
+        $usuario = ListarUsuario();
+        while($s = $usuario->fetch_array()){
+          if($s['email_usuario'] === $email && $s['senha_user'] === $password){
+            $correct=true;
+            echo ("<script>
+                window.location.href='create.php';
+                </script>");
+          }
+        }
+        if($correct!=true){
+              alert("Login ou senha incorretos!");
+            }
+      }
+    ?>
   </body>
 </html>

@@ -8,10 +8,13 @@
   font-family: 'Roboto', sans-serif;
 }
 
-#img {
-  margin-left: 42%;
-  margin-top: 5vh;
+.icon2 {
+  color: rgb(255, 35, 35);
+  font-size: 20px;
+  margin-top: -80px;
+  font-weight: bold;
 }
+
 body {
   background: url('../Imgs/teste2.jpg') no-repeat;
   background-size: cover;
@@ -62,7 +65,7 @@ input[type='submit']:hover {
   margin-right: 4%;
 }
 
-.input-fields .input {
+.input {
   margin: 10px 0;
   background: transparent;
   border: 0px;
@@ -76,13 +79,9 @@ input[type='submit']:hover {
   /* Chrome/Opera/Safari */
   color: #c5ecfd;
 }
-::-moz-placeholder {
-  /* Firefox 19+ */
-  color: #c5ecfd;
-}
-:-ms-input-placeholder {
-  /* IE 10+ */
-  color: #c5ecfd;
+
+.input-fields .icone {
+  color: red;
 }
 
 @media screen and (max-width: 600px) {
@@ -91,9 +90,5 @@ input[type='submit']:hover {
   }
   .input-fields {
     width: 100%;
-  }
-  #img {
-    width: 100px;
-    margin-top: 5px;
   }
 }
