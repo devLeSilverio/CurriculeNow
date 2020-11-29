@@ -8,18 +8,16 @@
   font-family: 'Roboto', sans-serif;
 }
 
-.icon2 {
-  color: rgb(255, 35, 35);
-  font-size: 20px;
-  margin-top: -80px;
-  font-weight: bold;
-}
-
 body {
   background: url('../Imgs/teste2.jpg') no-repeat;
   background-size: cover;
   height: 100vh;
   background-position-y: -100px;
+}
+
+form {
+  margin-top: 30px;
+  margin-bottom: 40px;
 }
 
 input[type='submit'] {
@@ -80,8 +78,14 @@ input[type='submit']:hover {
   color: #c5ecfd;
 }
 
-.input-fields .icone {
-  color: red;
+@media (max-width: 800px) {
+  body {
+    background-color: rgb(158, 158, 90);
+  }
+  input[type='submit']:hover {
+    background-color: #baeb4a;
+    transition: 0.5s;
+  }
 }
 
 @media screen and (max-width: 600px) {
