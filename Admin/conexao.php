@@ -38,17 +38,6 @@ function ListarUsuario(){
 
 //---------------------------tb_info_adicionais--------------------------
 
-function CadastrarInfoAdicionais($informacoes,$id_usuario){
-  $sql = 'INSERT INTO tb_info_adicionais VALUES(null,"'.$informacoes.'",'.$id_usuario.')';
-  $res = $GLOBALS['conexao']->query($sql);
-  if($res){
-    alert("Informações cadastradas com sucesso!");
-  }
-  else{
-     alert("Informações não cadastradas".$GLOBALS['conexao']->error);
-  }
-}
-
 function ListarInfoAdicionais(){
   $sql = 'SELECT * from tb_info_adicionais';
   $res = $GLOBALS['conexao']->query($sql);
@@ -77,7 +66,7 @@ function ListarFormacao(){
 }
 
 //--------------------tb_localizacao
-function CadastrarLocalização($estado,$cidade,$cep,$id_usuario){
+function CadastrarLocalizacao($estado,$cidade,$cep,$id_usuario){
   $sql = 'INSERT INTO tb_localizacao VALUES(null, "'.$estado.'","'.$cidade.'","'.$cep.'",'.$id_usuario.')';
   $res = $GLOBALS['conexao']->query($sql);
   if($res){
@@ -89,8 +78,6 @@ function CadastrarLocalização($estado,$cidade,$cep,$id_usuario){
 }
 
 function ListarLocalizaca(){
-
-  
   $sql = 'SELECT * FROM tb_localizacao';
   $res= $GLOBALS['conexao']->query($sql);
   return $res;

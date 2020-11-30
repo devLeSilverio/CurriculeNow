@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Helvetica;
+  border: none;
+}
+
+#file {
+  margin-top: 4px;
+}
+
+.icon2 {
+  color: red;
+}
+
+.titleEmail,
+.idade,
+.genero,
+.nacionalidade,
+.ec,
+.estadoC,
+.telefoneR,
+.state,
+.cidade,
+.celular,
+.endereco,
+.cep,
+.complemento,
+.logradouro {
+  margin-top: 4px;
+}
+
+.tracinho {
+  background-color: rgb(162, 162, 243);
+  border-radius: 12px;
+}
+
+.objetivo {
+  border: 4px solid black;
+}

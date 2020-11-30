@@ -4,6 +4,7 @@ show tables;
 create table tb_usuario(
   cd_usuario int unique primary key auto_increment,
   nm_usuario varchar(80),
+  nm_foto varchar(120),
   email_usuario varchar(50),
   senha_user varchar(20) not null,
   nacionalidade varchar(50),
@@ -15,12 +16,6 @@ create table tb_usuario(
   endereco varchar (50),
   complemento varchar(80),
   objetivo varchar(120)
-) engine = InnoDB default charset = utf8;
-create table tb_info_adicionais(
-  cd_info int unique primary key auto_increment,
-  informacoes varchar(40),
-  id_usuario int,
-  foreign key (id_usuario) references tb_usuario (cd_usuario) on delete cascade on update cascade
 ) engine = InnoDB default charset = utf8;
 create table tb_formacao_academica(
   cd_formacao int unique primary key auto_increment,
