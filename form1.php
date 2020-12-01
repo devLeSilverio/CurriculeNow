@@ -1,4 +1,6 @@
-<?php include('./Admin/conexao.php');?>
+<?php include('./Admin/conexao.php');
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,18 +17,19 @@
       integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
       crossorigin="anonymous"
     />
+
   </head>
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-md-12 monte">
-          <center><h2>Monte seu Currículo</h2></center>
+        <div class="col-md-12">
+       <center><h2 class="monte">Monte seu Currículo</h2></center>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-md-12">
-          <h4>1.Dados Pessoais</h4>
+        <div class="col-md-12 rowDados">
+          <h4 class="monte">1.Dados Pessoais</h4>
         </div>
       </div>
 
@@ -44,7 +47,7 @@
           </div>
 
           <div class="col-md-4 foto">
-            <label for="name" class="title2">Escolha uma foto:</label>
+            <label for="foto" class="title2">Escolha uma foto:</label>
             <span class="icon2">*</span>
             <input type="file" class="custom-file-inputid=" file" name="foto" alt="Insira uma foto" />
           </div>
@@ -166,40 +169,35 @@
 
 
         <br />
-
+        <hr />
         <div class="row">
-          <div class="col-md-12 tracinho">
-            <h4>2.Objetivo</h4>
+          <div class="col-md-12 rowDados">
+            <h4 class="monte">2.Objetivo</h4>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12">
             <label for="objetivo">Objetivo:</label>
             <textarea class="form-control" name="objetivo" rows="3"></textarea>
-          </div>
+          </div> 
+
+
         </div>
 
         <br />
 
-        <?php
-          $Listar =ListarUsuario();
-          while($u=$Listar->fetch_array()){
-        echo'
 
         <div class="row">
-          <div class="col-md-12">
-           <a href="#form2.html?id='.$u['cd_usuario'].'"> 
-         <input
+          <div class="col-md-4 offset-8">
+           <input
               type="submit"
               class="btn btn-primary btn-block"
               name="next"
-              value="Next"
-            /></a>
-          ';
-          }
+              value="Next ➤"
+              id="next"
+            />   
         
-          ?>
-          </div>
+         </div>   
         </div>
       </form>
     </div>
@@ -216,15 +214,20 @@ if(isset($_POST['next'])){
     else{
       echo 'Não foi enviado!!Tente Novamente.';
     }
+    
+    UpdateUsuario($_POST['name'],$destino,$_POST['nacao'],$_POST['age'],
+    $_POST['ec'],$_POST['telefoneR'],$_POST['celular'],$_POST['logradouro'],$_POST['endereco'],
+    $_POST['complemento'],$_POST['objetivo'],$_SESSION['codigo']);
+    CadastrarLocalizacao($_POST['state'],$_POST['cidade'],$_POST['cep'],$_SESSION['codigo']);
+    
+    echo ("<script>
+    window.location.href='form2.html';
+    </script>");
 
-    CadastrarUsuario($_POST['name'],$destino,$_POST['email'],null,$_POST['nacao'],$_POST['age'],
-    $_POST['age'],$_POST['ec'],$_POST['telefoneR'],$_POST['celular'],$_POST['logradouro'],$_POST['endereco'],
-    $_POST['complemento'],$_POST['objetivo']);
-
-    //CadastrarLocalizacao($_POST['state'],$_POST['cidade'],$_POST['cep'],);
-  }
+   }
 
 }
+
 
 ?>
 

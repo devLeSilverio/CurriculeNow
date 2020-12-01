@@ -55,7 +55,7 @@
           if($password===$password2){
           CadastrarUsuario($nome,"",$email,$password,null,null,null,null,$telefone,null,null,null,null); 
           echo ("<script>
-          window.location.href = 'index.html';
+          window.location.href = 'index.php';
           </script>
           "); 
           }else{

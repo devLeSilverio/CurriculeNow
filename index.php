@@ -1,4 +1,6 @@
-<?php include('./Admin/conexao.php'); ?>
+<?php include('./Admin/conexao.php'); 
+session_start();?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -50,9 +52,12 @@
         while($s = $usuario->fetch_array()){
           if($s['email_usuario'] === $email && $s['senha_user'] === $password){
             $correct=true;
+            $_SESSION['codigo'] = $s['cd_usuario'];
             echo ("<script>
-                window.location.href='create.php';
+                window.location.href='form1.php?id=".$s['cd_usuario']."';
                 </script>");
+                
+               
           }
         }
         if($correct!=true){

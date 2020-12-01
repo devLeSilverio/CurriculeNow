@@ -30,6 +30,20 @@
   }
 }
 
+function UpdateUsuario($nm_user,$foto,$nacionalidade,$idade,$estado_civil,
+$telefone_residencial,$telefone_celular,$logradouro,$endereco,$complemento,$objetivo,$cd){
+  $sql ='UPDATE tb_usuario SET nm_usuario  = "'.$nm_user.'", nm_foto = "'.$foto.'",nacionalidade = "'.$nacionalidade.'",idade = "'.$idade.'",estado_civil = "'.$estado_civil.'",telefone_residencial = "'.$telefone_residencial.'",telefone_celular = "'.$telefone_celular.'",
+  logradouro = "'.$logradouro.'",endereco = "'.$endereco.'",complemento ="'.$complemento.'",objetivo = "'.$objetivo.'" WHERE cd_usuario ='.$cd;
+  $res = $GLOBALS['conexao']->query($sql);
+ if($res){
+     alert("Usuario cadastrado totalmente com sucesso");
+ }
+ else{
+     echo $sql;
+     alert("Usuario não cadastrado totalmente".$GLOBALS['conexao']->error);
+ }
+}
+
 function ListarUsuario(){
   $sql = 'SELECT * FROM tb_usuario';
   $res = $GLOBALS['conexao']->query($sql);
