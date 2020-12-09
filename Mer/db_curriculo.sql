@@ -34,7 +34,7 @@ create table tb_localizacao(
   foreign key (id_usuario) references tb_usuario (cd_usuario) on delete cascade on update cascade
 ) engine = InnoDB default charset = utf8;
 create table tb_experiencia (
-  cd_usuario int unique primary key auto_increment,
+  cd_experiencia int unique primary key auto_increment,
   nm_empresa varchar(50),
   dt_inicio date,
   dt_fim date,

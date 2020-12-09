@@ -1,5 +1,7 @@
-<?php include('./Admin/conexao.php'); 
-session_start();?>
+<?php 
+include('./Admin/conexao.php'); 
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +45,7 @@ session_start();?>
     </div>
 </form>
 
-<?php
+<?php 
       if(isset($_POST['login'])){
         $email = $_POST['email'];
         $password = $_POST['password'];
@@ -55,14 +57,12 @@ session_start();?>
             $_SESSION['codigo'] = $s['cd_usuario'];
             echo ("<script>
                 window.location.href='form1.php?id=".$s['cd_usuario']."';
-                </script>");
-                
-               
+                </script>");             
           }
         }
         if($correct!=true){
               alert("Login ou senha incorretos!");
-            }
+            } 
       }
     ?>
   </body>

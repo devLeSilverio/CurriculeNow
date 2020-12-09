@@ -122,10 +122,10 @@ session_start();
             <label for="estado" class="state">Estado:</label>
             <span class="icon2">*</span>
             <select class="form-control" name="state">
-              <option>São Paulo</option>
-              <option>Rorraima</option>
-              <option>Rio de Janeiro</option>
-              <option>Minas Gerais</option>
+              <option>SP</option>
+              <option>RR</option>
+              <option>RJ</option>
+              <option>MG</option>
             </select>
           </div>
 
@@ -157,7 +157,6 @@ session_start();
           <div class="row">
           <div class="col-md-4 complemento">
             <label for="complemento" class="complemento">Complemento :</label>
-            <span class="icon2">*</span>
             <input type="text" class="form-control" name="complemento" />
           </div>
           <div class="col-md-4 cep">
@@ -215,14 +214,25 @@ if(isset($_POST['next'])){
       echo 'Não foi enviado!!Tente Novamente.';
     }
     
-    UpdateUsuario($_POST['name'],$destino,$_POST['nacao'],$_POST['age'],
-    $_POST['ec'],$_POST['telefoneR'],$_POST['celular'],$_POST['logradouro'],$_POST['endereco'],
-    $_POST['complemento'],$_POST['objetivo'],$_SESSION['codigo']);
-    CadastrarLocalizacao($_POST['state'],$_POST['cidade'],$_POST['cep'],$_SESSION['codigo']);
+    UpdateUsuario($_POST['name']
+    ,$destino,
+    $_POST['nacao'],
+    $_POST['age'],
+    $_POST['ec'],
+    $_POST['telefoneR'],
+    $_POST['celular'],
+    $_POST['logradouro'],
+    $_POST['endereco'],
+    $_POST['complemento'],
+    $_POST['objetivo'],
+    $_SESSION['codigo']);
+
+    CadastrarLocalizacao($_POST['state'],
+    $_POST['cidade'],
+    $_POST['cep'],
+    $_SESSION['codigo']);
     
-    echo ("<script>
-    window.location.href='form2.html';
-    </script>");
+      echo ("<script>window.location.href='form2.php';</script>");
 
    }
 

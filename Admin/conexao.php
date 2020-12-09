@@ -2,9 +2,9 @@
 
 //variaveis de configuração da conexão com o banco de dados 
     $serv = "localhost";
-    $user = "root";
-    $senha = "usbw";
-    $banco = "db_curriculo";
+    $user = "id15395132_localhost";
+    $senha = "2rTOo)IBw|*YgCRR";
+    $banco = "id15395132_db_curriculo";
 
     $conexao = new mysqli($serv,$user,$senha,$banco);
     $conexao->query("SET NAMES 'utf8'");
@@ -36,6 +36,8 @@ $telefone_residencial,$telefone_celular,$logradouro,$endereco,$complemento,$obje
   logradouro = "'.$logradouro.'",endereco = "'.$endereco.'",complemento ="'.$complemento.'",objetivo = "'.$objetivo.'" WHERE cd_usuario ='.$cd;
   $res = $GLOBALS['conexao']->query($sql);
  if($res){
+          echo $sql;
+
      alert("Usuario cadastrado totalmente com sucesso");
  }
  else{
@@ -50,18 +52,10 @@ function ListarUsuario(){
   return $res;
 }
 
-//---------------------------tb_info_adicionais--------------------------
-
-function ListarInfoAdicionais(){
-  $sql = 'SELECT * from tb_info_adicionais';
-  $res = $GLOBALS['conexao']->query($sql);
-  return $res;
-}
-
 //------------------------------------tb_formacao_academica 
 
 function CadastrarFormacao($nm_curso,$nm_instituicao,$dt_ano_conclusao,$id_usuario){
-  $sql = 'INSERT INTO tb_info_adicionais VALUES(null,"'.$nm_curso.'","'.$nm_instituicao.'","'.$dt_ano_conclusao.'",'.$id_usuario.')';
+  $sql = 'INSERT INTO tb_formacao_academica VALUES(null,"'.$nm_curso.'","'.$nm_instituicao.'","'.$dt_ano_conclusao.'",'.$id_usuario.')';
   $res = $GLOBALS['conexao']->query($sql);
   if($res){
     alert("Informações cadastradas com sucesso!");
@@ -91,15 +85,17 @@ function CadastrarLocalizacao($estado,$cidade,$cep,$id_usuario){
   }
 }
 
-function ListarLocalizaca(){
+function ListarLocalizacao(){
   $sql = 'SELECT * FROM tb_localizacao';
   $res= $GLOBALS['conexao']->query($sql);
   return $res;
 }
 
 //---------------------tb_experiencia
-function CadastrarExperencia($nm_empresa,$dt_inicio,$dt_fim,$cargo,$funcao_cargo,$atividades_complementares,$id_usuario){
-$sql = 'INSERT INTO tb_experiencia VALUES(null,"'.$nm_empresa.'","'.$dt_inicio.'","'.$dt_fim.'","'.$cargo.'","'.$funcao_cargo.'","'.$atividades_complementares.'",'.$id_usuario.')';
+function CadastrarExperencia($nm_empresa,$dt_inicio,$dt_fim,$cargo,$funcao_cargo,$id_usuario){
+$sql = 'INSERT INTO tb_experiencia VALUES(null,"'.$nm_empresa.'","'.$dt_inicio.'","'.$dt_fim.'","'.$cargo.'","'.$funcao_cargo.'",'.$id_usuario.')';
+$res = $GLOBALS['conexao']->query($sql);
+
 if($res){
   alert("Informações cadastradas com sucesso!");
 }
@@ -122,4 +118,3 @@ function alert($msg){
 
 
 ?>
-
